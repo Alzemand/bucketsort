@@ -1,0 +1,10 @@
+Implemente o algoritmo de ordenação Bucketsort, que utiliza um vetor auxiliar B de listas encadeadas para ordenar um vetor A, de acordo com os seguintes requisitos:
+[X] 1. Gere randomicamente o vetor A de 100000 elementos tipo float 0.0≤x<1.0
+[X] 2. Crie um vetor B de 100 listas encadeadas, onde a primeira lista recebe chaves de valor 0,00xxx, a segunda recebe valores 0,01xxx e assim por diante. A última lista encadeada receberá valores 0,99xxx
+[X] 3. O programa deve modificar o vetor original A tornando-o ordenado. 
+[X] 4. A inserção nas listas encadeadas B[ ] deve ser feita de forma ordenada.
+[X] 5. Escreva um procedimento para imprimir os dados ordenados, um para imprimir a quantidade de dados em cada lista, e também um procedimento para imprimir uma lista. Por ex.: [23]->0.234->0.237->NULL
+[ ] 6. Faça dois gráficos para a quantidade de dados em cada lista, em duas situações: 1. o gerador de números aleatórios é uniforme; 2. o gerador de números aleatórios tem qualquer distribuição não uniforme (pesquise como gerar números com diferentes distribuições).
+[ ] 7. Faça um procedimento para liberar a memória utilizada nas listas encadeadas.
+[X] O algoritmo Bucketsort não precisa ser implementado exatamente como está no livro (imagem em anexo). O que se tem que fazer é simplesmente percorrer o vetor A e inserir ordenadamente cada elemento na sua lista correspondente presente em B[xx].
+Depois disso o vetor A deve ser atualizado com os valores em ordem.
