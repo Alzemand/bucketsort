@@ -1,7 +1,9 @@
 # Bucket Sort usando Python
-from random import uniform
-from matplotlib import pyplot as plt
-
+from random import uniform, normalvariate
+try:
+    from matplotlib import pyplot as plt
+except:
+    print("To display the graphics run: pip3 install matplotlib")
 
 elementos = 100000
 count = 0
@@ -21,7 +23,6 @@ def bucket_sort(array):
     # Classificar os elementos no bucket
     for i in range(100):
         bucket[i] = sorted(bucket[i])
-
     return bucket
 
 def bucketToArray(array):
@@ -33,26 +34,53 @@ def bucketToArray(array):
             k += 1
     return temp
 
-for x in range(elementos):
-    y = round(uniform(0.0, 1.0), 5)
-    A.append(y)
+print('\n')
+opt = input("To generate random numbers type 1)Uniform  or 2)Normalvariate: ")
 
-bucket = bucket_sort(A)
-A = bucketToArray(bucket)
+# Gere randomicamente o vetor A de 100000 elementos tipo float 0.0≤x<1.0
+if int(opt) == 1:
+    for x in range(elementos):
+        y = round(uniform(0.0, 0.99999), 5)
+        A.append(y)
+elif int(opt) == 2:
+    for x in range(elementos):
+        y = round(normalvariate(0.5, 0.1), 5)
+        A.append(y)
 
-for x in bucket:
+# Criar um vetor B, ordenado com bucket sort
+B = bucket_sort(A)
+
+# Ordenar o vetor original A
+A = bucketToArray(B)
+
+# Exibir o vetor B com a lista encadeada.
+for x in B:
     print ("[" + str(count) + "]", x)
     count += 1
     eixox.append(count)
-
-count = 0
-
-for x in bucket:
     eixoy.append(len(x))
+
+# Exibir a quantidade de itens nas listas
+print("\n")
+opt = input("Show len() in B[]? (n/y): ")
+count = 0
+if opt == "y":
+   for x in B:
+    print ("[" + str(count) + "]", len(x))
     count += 1
 
-for x in A:
-    print(x)
+print("\n")
+opt = input("Show the new A[] ordered vector? (n/y): ")
+if opt == "y":
+    for x in A:
+        print(x)
 
-plt.bar(eixox, eixoy)
-plt.show()
+# Limpar o vetor
+A=[]
+
+print("\n")
+opt = input("Show graphics? (n/y): ")
+if opt == "y":
+    # Exibir o grafico
+    plt.bar(eixox, eixoy)
+    plt.show()
